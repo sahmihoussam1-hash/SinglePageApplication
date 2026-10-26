@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bibliothèque - Gestion de livres</title>
-  <!-- CDN Tailwind CSS -->
+ 
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-slate-50 min-h-screen text-slate-800 font-sans">
 
-  <!-- En-tête / Header ton froid -->
+ 
   <header class="bg-slate-900 text-slate-100 py-6 shadow-md border-b border-slate-800">
     <div class="container mx-auto px-4 flex justify-between items-center">
       <div class="flex items-center gap-3">
@@ -23,33 +23,33 @@
     </div>
   </header>
 
-  <!-- Contenu Principal -->
+  
   <main class="container mx-auto px-4 py-8 grid grid-cols-1 lg:grid-cols-3 gap-8">
     
-    <!-- Section Formulaire (1 colonne) -->
+   
     <section class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
       <h2 class="text-xl font-bold mb-4 text-slate-900 border-b pb-2 border-slate-100" id="form-title">Ajouter un livre</h2>
       
       <form id="book-form" class="space-y-4">
-        <!-- Champ caché pour stocker l'ID en mode édition -->
+      
         <input type="hidden" id="book-id">
 
         <div>
           <label for="title" class="block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-1">Titre *</label>
-          <input type="text" id="title" required placeholder="Ex: L'Alchimiste"
+          <input type="text" id="title" required placeholder="Ex: Demain"
             class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-cyan-500 focus:outline-none transition">
         </div>
 
         <div>
           <label for="author" class="block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-1">Auteur *</label>
-          <input type="text" id="author" required placeholder="Ex: Paulo Coelho"
+          <input type="text" id="author" required placeholder="Ex: Guillaume Musso"
             class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-cyan-500 focus:outline-none transition">
         </div>
 
         <div class="grid grid-cols-2 gap-4">
           <div>
             <label for="year" class="block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-1">Année</label>
-            <input type="number" id="year" placeholder="1988"
+            <input type="number" id="year" placeholder="2013"
               class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-cyan-500 focus:outline-none transition">
           </div>
           <div>
@@ -81,10 +81,10 @@
       </form>
     </section>
 
-    <!-- Section Liste & Filtres (2 colonnes) -->
+   
     <section class="lg:col-span-2 space-y-6">
       
-      <!-- Barre de recherche et tri -->
+     
       <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200 flex flex-col sm:flex-row gap-4 justify-between items-center">
         <div class="w-full sm:flex-1">
           <input type="text" id="search-input" placeholder="🔍 Rechercher par titre ou auteur..."
@@ -99,19 +99,18 @@
         </div>
       </div>
 
-      <!-- Conteneur de la liste des livres -->
+     
       <div id="books-list" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        
-        <!-- Exemple de carte de livre (style tons froids) -->
+       
         <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200 flex flex-col justify-between hover:shadow-md transition">
           <div>
             <div class="flex justify-between items-start gap-2 mb-2">
-              <h3 class="text-lg font-bold text-slate-900">L'Alchimiste</h3>
+              <h3 class="text-lg font-bold text-slate-900">Demain</h3>
               <span class="bg-emerald-50 text-emerald-700 text-xs font-semibold px-2.5 py-1 rounded-full whitespace-nowrap border border-emerald-200">Lu</span>
             </div>
-            <p class="text-xs text-slate-500 mb-2 font-medium">Par <span class="text-slate-800">Paulo Coelho</span> • 1988</p>
-            <span class="inline-block bg-slate-100 text-slate-700 text-xs px-2.5 py-0.5 rounded-md mb-3 font-medium">Roman philosophique</span>
-            <p class="text-sm text-slate-600 line-clamp-2 mb-4 leading-relaxed">L'histoire de Santiago, un jeune berger Andalou qui part à la recherche d'un trésor égyptien...</p>
+            <p class="text-xs text-slate-500 mb-2 font-medium">Par <span class="text-slate-800">Guillaume Musso</span> • 2013</p>
+            <span class="inline-block bg-slate-100 text-slate-700 text-xs px-2.5 py-0.5 rounded-md mb-3 font-medium">Roman Hybride</span>
+            <p class="text-sm text-slate-600 line-clamp-2 mb-4 leading-relaxed">Séparés par une faille temporelle d'un an, un professeur endeuillé et une sommelière connectés par un mystérieux ordinateur s'engagent dans une course contre le temps pour réécrire le passé et empêcher un meurtre.</p>
           </div>
           <div class="flex justify-end gap-2 pt-3 border-t border-slate-100">
             <button class="px-3 py-1.5 text-xs font-medium bg-slate-100 text-slate-700 rounded-lg hover:bg-slate-200 transition">Modifier</button>
@@ -124,7 +123,7 @@
     </section>
   </main>
 
-  <!-- Module JS principal -->
+
   <script type="module" src="./src/js/app.js"></script>
 </body>
 </html>
