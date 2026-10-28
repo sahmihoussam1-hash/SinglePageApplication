@@ -1,7 +1,7 @@
-// Notre liste de livres (commence vide)
+//  liste de livres (commence vide)
 export let livres = [];
 
-// Une fonction simple pour ajouter un livre complet
+// fonction simple pour ajouter un livre complet
 export function ajouterLivre(title,auteur,annee, genre, status, description) {
   const nvLivre = {
     id: livres.length ? Math.max(...livres.map(l => l.id)) + 1 : 1,
