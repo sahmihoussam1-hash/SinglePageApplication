@@ -1,5 +1,5 @@
 
-import { chargerLivres, sauvegarderLivres } from './storage.js';
+import { chargerLivres,sauvegarderLivres } from './storage.js';
 //  en cherche directement ce qui est stocker en localstorage
 export let livres = chargerLivres();
 // fonction ajouter un livre complet
@@ -18,7 +18,7 @@ export function ajouterLivre(title,auteur,annee, genre, status, description) {
 
   livres.push(nvLivre);
 
-  sauvegarderLivres(livres);
+sauvegarderLivres(livres);
 }
 // function pour la supprime des livres 
 export function supprimerLivre(Id){
@@ -27,4 +27,18 @@ export function supprimerLivre(Id){
     livres.splice(index,1)
     sauvegarderLivres(livres);
  }
+}
+// function pour la modife des livres 
+export function modifierLivre(id, title, auteur, annee, genre, status, description) {
+  const livre = livres.find(l => l.id === id);
+
+  if (livre){
+    livre.title = title;
+    livre.auteur = auteur;
+    livre.annee = annee;
+    livre.genre = genre;
+    livre.statut = status;
+    livre.description = description;
+    sauvegarderLivres(livres);
+  }
 }

@@ -26,7 +26,7 @@ export function afficherLivres(tableauLivres) {
       <p><strong>Statut :</strong> ${livre.statut}</p>
       <p class="my-2">${livre.description}</p>
       <div>
-        <button class="bg-gray-200 px-2 py-1 rounded text-sm">Modifier</button>
+        <button data-id="${livre.id}" class="modifier-btn bg-gray-200 px-2 py-1 rounded text-sm">Modifier</button>
         <button data-id="${livre.id}" class="supprimer-btn bg-red-200 px-2 py-1 rounded text-sm">Supprimer</button>
       </div>
     `;
