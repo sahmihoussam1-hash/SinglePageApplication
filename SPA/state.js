@@ -1,10 +1,13 @@
-//  liste de livres (commence vide)
-export let livres = [];
 
-// fonction simple pour ajouter un livre complet
+import { chargerLivres, sauvegarderLivres } from './storage.js';
+//  en cherche directement ce qui est stocker en localstorage
+export let livres = chargerLivres();
+// fonction ajouter un livre complet
 export function ajouterLivre(title,auteur,annee, genre, status, description) {
-  const nvLivre = {
-    id: livres.length ? Math.max(...livres.map(l => l.id)) + 1 : 1,
+   const Id = livres.length ? Math.max(...livres.map(l => l.id)) + 1 : 1;
+
+   const nvLivre = {
+    id:Id,
     title: title,
     auteur: auteur,
     annee: annee,
@@ -14,4 +17,14 @@ export function ajouterLivre(title,auteur,annee, genre, status, description) {
   };
 
   livres.push(nvLivre);
+
+  sauvegarderLivres(livres);
+}
+// function pour la supprime des livres 
+export function supprimerLivre(Id){
+  const index = livres.findIndex(livre => livre.id === Id);
+  if (index !== -1){
+    livres.splice(index,1)
+    sauvegarderLivres(livres);
+ }
 }
