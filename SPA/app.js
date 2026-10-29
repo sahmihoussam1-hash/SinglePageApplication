@@ -17,14 +17,16 @@
 // update 
 // search
 // clean data
-   import { livres, ajouterLivre } from './state.js';
+   import { livres, ajouterLivre,supprimerLivre } from './state.js';
    import { afficherLivres } from './ui.js';
 
 const formulaireLivre = document.getElementById("book-form");
+// on va recuperer la liste html qui contiennent les livres 
+const conteneurLivres = document.getElementById("books-list");
 
 // Afficher les livres vides ou existants au démarrage
 afficherLivres(livres);
-
+// gestion de l'ajoute d'un livre suivant notre formulaire 
 if (formulaireLivre) {
   formulaireLivre.addEventListener('submit', (evenement) => {
     evenement.preventDefault();
@@ -46,7 +48,20 @@ if (formulaireLivre) {
     formulaireLivre.reset();
   });
 }
-
+// Gestion de la suppresion d un livre 
+if (conteneurLivres){
+  conteneurLivres.addEventListener('click',(evenement) => {
+    // si l element cliquer possede la classe (supp-btn)
+    if (evenement.target.classList.contains('supprimer-btn')){
+      // on recupere l'id stocker dans l'attribut data-id du button 
+      const idLivre = evenement.target.getAttribute('data-id');
+        // on supprime du localestorage
+        supprimerLivre(Number(idLivre));
+        // et puis on met a jour l affichage du livre 
+        afficherLivres(livres);
+      }
+    });
+}
 
 
 
