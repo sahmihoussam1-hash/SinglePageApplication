@@ -17,7 +17,7 @@
 // update 
 // search
 // clean data
-   import { livres, ajouterLivre,supprimerLivre,modifierLivre} from './state.js';
+   import { livres, ajouterLivre,supprimerLivre,modifierLivre,trierLivre} from './state.js';
    import { afficherLivres } from './ui.js';
 
 const formulaireLivre = document.getElementById("book-form");
@@ -91,6 +91,34 @@ if (buttonSupprimer){
    });
    }
   
+
+   const inputRecherche = document.getElementById('search-input');
+
+if (inputRecherche) {
+  inputRecherche.addEventListener('input', (evenement) => {
+    // 1. Récupérer le texte tapé et le mettre en minuscules pour éviter les soucis de casse
+    const termeRecherche = evenement.target.value.toLowerCase().trim();
+
+    // 2. Filtrer le tableau des livres (par titre ou par auteur)
+    const livresFiltres = livres.filter(livre => {
+      const titreMatch = livre.title.toLowerCase().includes(termeRecherche);
+      const auteurMatch = livre.auteur.toLowerCase().includes(termeRecherche);
+      
+      return titreMatch || auteurMatch; // Garde le livre si l'un des deux correspond
+    });
+
+    // 3. Afficher uniquement les livres filtrés à l'écran
+    afficherLivres(livresFiltres);
+  });
+}
+const selectTri = document.getElementById('sort-select');
+
+if (selectTri) {
+  selectTri.addEventListener('change', (evenement) => {
+    trierLivre(evenement.target.value);
+    afficherLivres(livres);
+  });
+}
 
 
 
