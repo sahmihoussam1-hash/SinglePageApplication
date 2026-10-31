@@ -42,3 +42,14 @@ export function modifierLivre(id, title, auteur, annee, genre, status, descripti
     sauvegarderLivres(livres);
   }
 }
+
+export function trierLivre(critere){
+  if (critere === "titre") {
+    livres.sort((a,b) => a.title.localeCompare(b.title));
+  } else if (critere === "auteur") {
+    livres.sort((a,b) => a.auteur.localeCompare(b.auteur));
+  } else if (critere === "annee") {
+     livres.sort((a,b) => Number(a.annee) - Number(b.annee));
+  }
+sauvegarderLivres(livres);
+}
